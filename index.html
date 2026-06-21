@@ -18,7 +18,8 @@
         <h1 id="main-title">Надие, пойдем со мной на свидание?</h1>
         <p class="lead">
           Я подготовил маленький сайт, потому что обычное сообщение не передает весь уровень
-          “мяу, это важно”. Выбери, куда пойдем, а потом нажми самую правильную кнопку.
+          “мяу, это важно”. Выбери маршрут, вайб, дресс-код и настроение, а потом
+          нажми самую правильную кнопку.
         </p>
 
         <div class="meme-strip" aria-label="Кото-мемы для настроения">
@@ -35,25 +36,100 @@
         </div>
 
         <div class="choice-grid" role="list">
-          <button class="choice-card is-selected" type="button" data-plan="Кофе, десерт и мемы">
+          <button class="choice-card is-selected" type="button" data-choice-group="plan" data-choice-value="Кофе, десерт и мемы">
             <span class="choice-icon" aria-hidden="true">☕</span>
             <span class="choice-title">Кофе + десерт</span>
             <span class="choice-text">Сидим уютно, обсуждаем мемы и делаем вид, что мы серьезные люди.</span>
           </button>
-          <button class="choice-card" type="button" data-plan="Прогулка и охота за котиками">
+          <button class="choice-card" type="button" data-choice-group="plan" data-choice-value="Прогулка и охота за котиками">
             <span class="choice-icon" aria-hidden="true">🌿</span>
             <span class="choice-title">Прогулка</span>
             <span class="choice-text">Идем гулять, ищем красивый вид и хотя бы одного котика по пути.</span>
           </button>
-          <button class="choice-card" type="button" data-plan="Кино и мемный разбор после">
+          <button class="choice-card" type="button" data-choice-group="plan" data-choice-value="Кино и мемный разбор после">
             <span class="choice-icon" aria-hidden="true">🎬</span>
             <span class="choice-title">Кино</span>
             <span class="choice-text">Выбираем фильм, а потом честно решаем: шедевр или мем.</span>
           </button>
-          <button class="choice-card" type="button" data-plan="Кото-кафе и максимальная милота">
+          <button class="choice-card" type="button" data-choice-group="plan" data-choice-value="Кото-кафе и максимальная милота">
             <span class="choice-icon" aria-hidden="true">🐈</span>
             <span class="choice-title">Кото-кафе</span>
             <span class="choice-text">План для профессионалов: чай, котики и абсолютное счастье.</span>
+          </button>
+        </div>
+      </section>
+
+      <section class="card choices" aria-labelledby="vibe-title">
+        <div>
+          <p class="eyebrow">вайб вечера</p>
+          <h2 id="vibe-title">Какой вайб ловим?</h2>
+        </div>
+
+        <div class="choice-grid compact-grid" role="list">
+          <button class="choice-card is-selected" type="button" data-choice-group="vibe" data-choice-value="уютный и нежный">
+            <span class="choice-icon" aria-hidden="true">🕯️</span>
+            <span class="choice-title">Уютный</span>
+            <span class="choice-text">Теплый разговор, мягкий свет и ощущение “вот это хороший вечер”.</span>
+          </button>
+          <button class="choice-card" type="button" data-choice-group="vibe" data-choice-value="мемный и смешной">
+            <span class="choice-icon" aria-hidden="true">😂</span>
+            <span class="choice-title">Мемный</span>
+            <span class="choice-text">Смеемся так, будто алгоритмы сами подкинули идеальный момент.</span>
+          </button>
+          <button class="choice-card" type="button" data-choice-group="vibe" data-choice-value="романтичный, но без лишнего пафоса">
+            <span class="choice-icon" aria-hidden="true">🌙</span>
+            <span class="choice-title">Романтичный</span>
+            <span class="choice-text">Красиво, спокойно и с тем самым взглядом, от которого котики мурчат.</span>
+          </button>
+        </div>
+      </section>
+
+      <section class="card choices" aria-labelledby="dress-title">
+        <div>
+          <p class="eyebrow">дресс-код</p>
+          <h2 id="dress-title">В чем приходим?</h2>
+        </div>
+
+        <div class="choice-grid compact-grid" role="list">
+          <button class="choice-card is-selected" type="button" data-choice-group="dress" data-choice-value="как удобно, главное быть собой">
+            <span class="choice-icon" aria-hidden="true">🧸</span>
+            <span class="choice-title">Удобно</span>
+            <span class="choice-text">Без правил: комфорт, улыбка и вайб “я пришла сиять”.</span>
+          </button>
+          <button class="choice-card" type="button" data-choice-group="dress" data-choice-value="милый smart casual">
+            <span class="choice-icon" aria-hidden="true">✨</span>
+            <span class="choice-title">Smart casual</span>
+            <span class="choice-text">Немного нарядно, но без официального “мы на собеседовании”.</span>
+          </button>
+          <button class="choice-card" type="button" data-choice-group="dress" data-choice-value="котиковый акцент или деталь для мемного настроения">
+            <span class="choice-icon" aria-hidden="true">🐾</span>
+            <span class="choice-title">Котиковый акцент</span>
+            <span class="choice-text">Любая маленькая деталь, после которой вечер сразу получает +100 к милоте.</span>
+          </button>
+        </div>
+      </section>
+
+      <section class="card choices" aria-labelledby="mood-title">
+        <div>
+          <p class="eyebrow">настроение</p>
+          <h2 id="mood-title">С каким настроением идем?</h2>
+        </div>
+
+        <div class="choice-grid compact-grid" role="list">
+          <button class="choice-card is-selected" type="button" data-choice-group="mood" data-choice-value="легкое и игривое">
+            <span class="choice-icon" aria-hidden="true">😏</span>
+            <span class="choice-title">Игривое</span>
+            <span class="choice-text">Флирт разрешен, улыбки обязательны, неловкие паузы превращаем в мемы.</span>
+          </button>
+          <button class="choice-card" type="button" data-choice-group="mood" data-choice-value="спокойное и теплое">
+            <span class="choice-icon" aria-hidden="true">🤍</span>
+            <span class="choice-title">Теплое</span>
+            <span class="choice-text">Просто хороший вечер, где рядом красиво, спокойно и очень приятно.</span>
+          </button>
+          <button class="choice-card" type="button" data-choice-group="mood" data-choice-value="авантюрное и готовое к маленьким приключениям">
+            <span class="choice-icon" aria-hidden="true">🚀</span>
+            <span class="choice-title">Приключение</span>
+            <span class="choice-text">Выбираем маршрут по сердцу, а не по карте, и ловим лучший сюжет дня.</span>
           </button>
         </div>
       </section>
@@ -62,10 +138,15 @@
         <div class="answer-copy">
           <p class="eyebrow">финальный выбор</p>
           <h2>Ну что, Надие?</h2>
-          <p id="selected-plan">Выбранный план: Кофе, десерт и мемы.</p>
+          <div class="date-summary" id="date-summary">
+            <p>План: Кофе, десерт и мемы.</p>
+            <p>Вайб: уютный и нежный.</p>
+            <p>Дресс-код: как удобно, главное быть собой.</p>
+            <p>Настроение: легкое и игривое.</p>
+          </div>
         </div>
         <div class="button-row">
-          <button class="primary-button" id="yes-button" type="button">Да, конечно 💖</button>
+          <button class="primary-button" id="yes-button" type="button">Да, я в деле 💖</button>
           <button class="ghost-button" id="no-button" type="button">Не согласна</button>
         </div>
       </section>
@@ -74,7 +155,7 @@
         <div class="result-emoji" id="result-emoji" aria-hidden="true">😻</div>
         <h2 id="result-title">Ура!</h2>
         <p id="result-text"></p>
-        <button class="ghost-button small-button" id="reset-button" type="button">Выбрать другой план</button>
+        <button class="ghost-button small-button" id="reset-button" type="button">Переиграть выбор</button>
       </section>
     </main>
 
