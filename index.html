@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Надие, пойдем на свидание?</title>
+    <meta
+      name="description"
+      content="Милое приглашение на свидание для Надие с котиками, мемами и выбором плана."
+    >
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <main class="page-shell">
+      <section class="hero card" aria-labelledby="main-title">
+        <div class="floating-cat" aria-hidden="true">🐾</div>
+        <p class="eyebrow">экстренное кото-сообщение</p>
+        <h1 id="main-title">Надие, пойдем со мной на свидание?</h1>
+        <p class="lead">
+          Я подготовил маленький сайт, потому что обычное сообщение не передает весь уровень
+          “мяу, это важно”. Выбери, куда пойдем, а потом нажми самую правильную кнопку.
+        </p>
+
+        <div class="meme-strip" aria-label="Кото-мемы для настроения">
+          <span>котики одобряют</span>
+          <span>мемный комитет за</span>
+          <span>уровень кринжа: мило</span>
+        </div>
+      </section>
+
+      <section class="card choices" aria-labelledby="date-plan-title">
+        <div>
+          <p class="eyebrow">план свидания</p>
+          <h2 id="date-plan-title">Куда пойдем?</h2>
+        </div>
+
+        <div class="choice-grid" role="list">
+          <button class="choice-card is-selected" type="button" data-plan="Кофе, десерт и мемы">
+            <span class="choice-icon" aria-hidden="true">☕</span>
+            <span class="choice-title">Кофе + десерт</span>
+            <span class="choice-text">Сидим уютно, обсуждаем мемы и делаем вид, что мы серьезные люди.</span>
+          </button>
+          <button class="choice-card" type="button" data-plan="Прогулка и охота за котиками">
+            <span class="choice-icon" aria-hidden="true">🌿</span>
+            <span class="choice-title">Прогулка</span>
+            <span class="choice-text">Идем гулять, ищем красивый вид и хотя бы одного котика по пути.</span>
+          </button>
+          <button class="choice-card" type="button" data-plan="Кино и мемный разбор после">
+            <span class="choice-icon" aria-hidden="true">🎬</span>
+            <span class="choice-title">Кино</span>
+            <span class="choice-text">Выбираем фильм, а потом честно решаем: шедевр или мем.</span>
+          </button>
+          <button class="choice-card" type="button" data-plan="Кото-кафе и максимальная милота">
+            <span class="choice-icon" aria-hidden="true">🐈</span>
+            <span class="choice-title">Кото-кафе</span>
+            <span class="choice-text">План для профессионалов: чай, котики и абсолютное счастье.</span>
+          </button>
+        </div>
+      </section>
+
+      <section class="card answer-panel" aria-live="polite">
+        <div class="answer-copy">
+          <p class="eyebrow">финальный выбор</p>
+          <h2>Ну что, Надие?</h2>
+          <p id="selected-plan">Выбранный план: Кофе, десерт и мемы.</p>
+        </div>
+        <div class="button-row">
+          <button class="primary-button" id="yes-button" type="button">Да, конечно 💖</button>
+          <button class="ghost-button" id="no-button" type="button">Не согласна</button>
+        </div>
+      </section>
+
+      <section class="result card is-hidden" id="result" aria-live="polite">
+        <div class="result-emoji" id="result-emoji" aria-hidden="true">😻</div>
+        <h2 id="result-title">Ура!</h2>
+        <p id="result-text"></p>
+        <button class="ghost-button small-button" id="reset-button" type="button">Выбрать другой план</button>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
