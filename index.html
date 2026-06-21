@@ -18,8 +18,8 @@
         <h1 id="main-title">Надие, пойдем со мной на свидание?</h1>
         <p class="lead">
           Я подготовил маленький сайт, потому что обычное сообщение не передает весь уровень
-          “мяу, это важно”. Выбери маршрут, вайб, дресс-код и настроение, а потом
-          нажми самую правильную кнопку.
+          “мяу, это важно”. Отвечай по шагам: каждый выбор откроет следующий блок,
+          а в конце появится самая правильная кнопка.
         </p>
 
         <div class="meme-strip" aria-label="Кото-мемы для настроения">
@@ -29,14 +29,14 @@
         </div>
       </section>
 
-      <section class="card choices" aria-labelledby="date-plan-title">
+      <section class="card choices step-section" data-step-section="plan" aria-labelledby="date-plan-title">
         <div>
           <p class="eyebrow">план свидания</p>
           <h2 id="date-plan-title">Куда пойдем?</h2>
         </div>
 
         <div class="choice-grid" role="list">
-          <button class="choice-card is-selected" type="button" data-choice-group="plan" data-choice-value="Кофе, десерт и мемы">
+          <button class="choice-card" type="button" data-choice-group="plan" data-choice-value="Кофе, десерт и мемы">
             <span class="choice-icon" aria-hidden="true">☕</span>
             <span class="choice-title">Кофе + десерт</span>
             <span class="choice-text">Сидим уютно, обсуждаем мемы и делаем вид, что мы серьезные люди.</span>
@@ -59,14 +59,14 @@
         </div>
       </section>
 
-      <section class="card choices" aria-labelledby="vibe-title">
+      <section class="card choices step-section is-hidden" data-step-section="vibe" aria-labelledby="vibe-title" aria-hidden="true">
         <div>
           <p class="eyebrow">вайб вечера</p>
           <h2 id="vibe-title">Какой вайб ловим?</h2>
         </div>
 
         <div class="choice-grid compact-grid" role="list">
-          <button class="choice-card is-selected" type="button" data-choice-group="vibe" data-choice-value="уютный и нежный">
+          <button class="choice-card" type="button" data-choice-group="vibe" data-choice-value="уютный и нежный">
             <span class="choice-icon" aria-hidden="true">🕯️</span>
             <span class="choice-title">Уютный</span>
             <span class="choice-text">Теплый разговор, мягкий свет и ощущение “вот это хороший вечер”.</span>
@@ -84,14 +84,14 @@
         </div>
       </section>
 
-      <section class="card choices" aria-labelledby="dress-title">
+      <section class="card choices step-section is-hidden" data-step-section="dress" aria-labelledby="dress-title" aria-hidden="true">
         <div>
           <p class="eyebrow">дресс-код</p>
           <h2 id="dress-title">В чем приходим?</h2>
         </div>
 
         <div class="choice-grid compact-grid" role="list">
-          <button class="choice-card is-selected" type="button" data-choice-group="dress" data-choice-value="как удобно, главное быть собой">
+          <button class="choice-card" type="button" data-choice-group="dress" data-choice-value="как удобно, главное быть собой">
             <span class="choice-icon" aria-hidden="true">🧸</span>
             <span class="choice-title">Удобно</span>
             <span class="choice-text">Без правил: комфорт, улыбка и вайб “я пришла сиять”.</span>
@@ -109,14 +109,14 @@
         </div>
       </section>
 
-      <section class="card choices" aria-labelledby="mood-title">
+      <section class="card choices step-section is-hidden" data-step-section="mood" aria-labelledby="mood-title" aria-hidden="true">
         <div>
           <p class="eyebrow">настроение</p>
           <h2 id="mood-title">С каким настроением идем?</h2>
         </div>
 
         <div class="choice-grid compact-grid" role="list">
-          <button class="choice-card is-selected" type="button" data-choice-group="mood" data-choice-value="легкое и игривое">
+          <button class="choice-card" type="button" data-choice-group="mood" data-choice-value="легкое и игривое">
             <span class="choice-icon" aria-hidden="true">😏</span>
             <span class="choice-title">Игривое</span>
             <span class="choice-text">Флирт разрешен, улыбки обязательны, неловкие паузы превращаем в мемы.</span>
@@ -134,16 +134,11 @@
         </div>
       </section>
 
-      <section class="card answer-panel" aria-live="polite">
+      <section class="card answer-panel step-section is-hidden" data-step-section="final" aria-live="polite" aria-hidden="true">
         <div class="answer-copy">
           <p class="eyebrow">финальный выбор</p>
           <h2>Ну что, Надие?</h2>
-          <div class="date-summary" id="date-summary">
-            <p>План: Кофе, десерт и мемы.</p>
-            <p>Вайб: уютный и нежный.</p>
-            <p>Дресс-код: как удобно, главное быть собой.</p>
-            <p>Настроение: легкое и игривое.</p>
-          </div>
+          <div class="date-summary" id="date-summary"></div>
         </div>
         <div class="button-row">
           <button class="primary-button" id="yes-button" type="button">Да, я в деле 💖</button>

@@ -8,6 +8,11 @@ const yesButton = document.querySelector("#yes-button");
 const noButton = document.querySelector("#no-button");
 const resetButton = document.querySelector("#reset-button");
 
+const stepOrder = ["plan", "vibe", "dress", "mood", "final"];
+const stepSections = new Map(
+  stepOrder.map((step) => [step, document.querySelector(`[data-step-section="${step}"]`)])
+);
+
 const choiceLabels = {
   plan: "План",
   vibe: "Вайб",
@@ -16,20 +21,64 @@ const choiceLabels = {
 };
 
 const selections = {
-  plan: "Кофе, десерт и мемы",
-  vibe: "уютный и нежный",
-  dress: "как удобно, главное быть собой",
-  mood: "легкое и игривое"
+  plan: null,
+  vibe: null,
+  dress: null,
+  mood: null
 };
 
 function updateSummary() {
   dateSummary.replaceChildren();
 
-  Object.entries(selections).forEach(([key, value]) => {
+  Object.entries(choiceLabels).forEach(([key, label]) => {
     const line = document.createElement("p");
-    line.textContent = `${choiceLabels[key]}: ${value}.`;
+    line.textContent = `${label}: ${selections[key]}.`;
     dateSummary.append(line);
   });
+}
+
+function revealStep(step) {
+  const section = stepSections.get(step);
+
+  if (!section) {
+    return;
+  }
+
+  const wasHidden = section.classList.contains("is-hidden");
+  section.classList.remove("is-hidden");
+  section.removeAttribute("aria-hidden");
+
+  if (wasHidden) {
+    window.setTimeout(() => {
+      section.scrollIntoView({ behavior: "smooth", block: "start" });
+    }, 80);
+  }
+}
+
+function hideStep(step) {
+  const section = stepSections.get(step);
+
+  if (!section || step === "plan") {
+    return;
+  }
+
+  section.classList.add("is-hidden");
+  section.setAttribute("aria-hidden", "true");
+}
+
+function revealNextStep(group) {
+  const currentIndex = stepOrder.indexOf(group);
+  const nextStep = stepOrder[currentIndex + 1];
+
+  if (!nextStep) {
+    return;
+  }
+
+  if (nextStep === "final") {
+    updateSummary();
+  }
+
+  revealStep(nextStep);
 }
 
 function showResult({ emoji, title, text }) {
@@ -48,7 +97,9 @@ choiceCards.forEach((card) => {
     groupCards.forEach((item) => item.classList.remove("is-selected"));
     card.classList.add("is-selected");
     selections[group] = card.dataset.choiceValue;
+    result.classList.add("is-hidden");
     updateSummary();
+    revealNextStep(group);
   });
 });
 
@@ -74,8 +125,13 @@ noButton.addEventListener("click", () => {
 });
 
 resetButton.addEventListener("click", () => {
+  Object.keys(selections).forEach((key) => {
+    selections[key] = null;
+  });
+
+  choiceCards.forEach((card) => card.classList.remove("is-selected"));
+  stepOrder.forEach(hideStep);
+  dateSummary.replaceChildren();
   result.classList.add("is-hidden");
   document.querySelector(".choices").scrollIntoView({ behavior: "smooth", block: "start" });
 });
-
-updateSummary();
